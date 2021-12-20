@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>사이버 연등회 | Yeondeunghoe</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<style type="text/css">
+		@font-face{
+			font-family: 'MapoFlowerIsland';
+			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
+		}
+		@font-face {
+		    font-family: 'Pretendard-Light';
+		    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+		    font-weight: 300;
+		    font-style: normal;
+		}
+		body{
+			background-color: #0d0d0d;
+			background-size: cover;
+			text-align: center;
+		}
+		h1{
+			color: white;
+		    font-family: 'MapoFlowerIsland';
+			font-size: 5em;
+			font-weight: 100;
+			z-index: 1000;
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			opacity: 0;
+			width: 85vw;
+			text-shadow: 0 0 7px black;
+			letter-spacing: -0.05em;
+			line-height: 1.2;
+			word-spacing: 0.05em;
+			word-break: keep-all;
+			word-wrap: break-word;
+		}
+
+
+		@keyframes opc100{
+			from{opacity: 0;} to{opacity: 100;}
+		}
+		@keyframes opc0{
+			from{opacity: 100;} to{opacity: 0;}
+		}
+		@keyframes opcFloat{
+			from{opacity: 100;} to{opacity: 0; top: -30vh;}
+		}
+		
+
+		button{
+			background-color: #0d0d0d;
+			border: none;
+			color: white;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 2em;
+			font-family: 'Comfortaa', cursive;
+			font-weight: 100;
+			cursor: pointer;
+			position: relative;
+			margin: 3vh;
+		}
+		button:after{
+			background: none repeat scroll 0 0 transparent;
+			bottom: 0;
+			content: "";
+			display: block;
+			height: 1.5px;
+			left: 50%;
+			position: absolute;
+			background: white;
+			transition: width 0.5s ease 0s, left 0.5s ease 0s;
+			width: 0;
+		}
+		button:hover:after{
+			width: 100%; 
+  			left: 0;
+		}
+
+		#launch{
+			opacity: 0;
+		}
+
+		#makebaloon{
+			position: absolute;
+			left: 1%;
+			top: 2%;
+			width: 4vw;
+			cursor: pointer;
+		}
+
+
+		h2{
+			opacity: 0;
+			position: absolute;
+			top: 35vh;
+			left: 5vh;
+			font-size: 3.3em;
+			font-family: 'Comfortaa', cursive;
+			font-weight: 100;
+			color: white;
+			margin-top: 0;
+		}
+
+		#container{
+			display: flex;
+		}
+		.message{
+			opacity: 0;
+			position: absolute;
+			width: 25vw;
+			font-family: 'Pretendard-Light';
+			font-size: 0.9em;
+			letter-spacing: 0.05em;
+			line-height: 1.5;
+			word-spacing: 0.05em;
+			word-break: keep-all;
+			word-wrap: break-word;
+			text-align: left;
+			color: white;
+		}
+		#m1{ top: 30vh; left: 43vw; }
+		#m2{ top: 30vh; right: 3vw; }
+
+		#finalLotus{ position: absolute; top: 18vh; right: 3vw; opacity: 0; width: 6vw; z-index: -10;}
+
+		#back{
+			opacity: 0;
+			font-size: 1.5vw;
+			position: absolute;
+			top: 80vh;
+			left: 43vw;
+			margin: 0;
+		}
+
+		@keyframes final{
+			from{opacity: 0;} to{opacity: 100; top: 30vh}
+		}
+
+
+		::selection {
+		  color: black;
+		  background: yellow;
+		}
+
+
+		.lotus{
+			position: absolute;
+			cursor: pointer;
+		}
+
+		#xxs { top: 16vh; }
+		@keyframes xxs {
+			from{top: 16vh;} to{top: 17vh;}}
+
+		#xs { top: 20vh; }
+		@keyframes xs {
+			from{top: 20vh;} to{top: 21.5vh;}}
+
+		#s { top: 24vh; }
+		@keyframes s {
+			from{top: 24vh;} to{top: 22vh;}}
+
+		#m { top: 27.5vh; }
+		@keyframes m {
+			from{top: 27.5vh;} to{top: 31vh;}}
+
+		#l { top: 33vh; }
+		@keyframes l {
+			from{top: 33vh;} to{top: 38.5vh;}}
+
+		#xl { top: 42vh; }
+		@keyframes xl {
+			from{top: 42vh;} to{top: 48.5vh;}}
+
+		#xxl { top: 66vh; }
+		@keyframes xxl {
+			from{top: 66vh;} to{top: 55vh;}}	
+
+		@keyframes float {
+			to{top: -60vh;}}
+
+	</style>
+</head>
+
+
+
+<body>
+	<h1 id="title">당신의 소원</h1>
+
+	<button id="launch">Start Yeondeunghoe</button>
+	<img id="makebaloon" src="add1.png">
+
+	<h2 id="sub">Yeondeunghoe</h2>
+	<div id="container">
+	<div id="m1" class="message">연등회는 신라에서 시작되어 고려 시대에 국가적 행사로 자리 잡은 불교행사입니다. 2012년 국가무형문화재로 지정된 후, 2020년 유네스코 인류무형문화유산 대표목록에 등재되었습니다. 조선시대에는 민속행사로 행해졌고 해방 이후 전통적인 시련, 탑돌이의 행렬 문화가 확대되어 연등행렬로 발전하였습니다.<br><br>연등회에 참여하는 사람들은 자신이 직접 만든 등에 불을 밝히고 거리로 나서며, 이는 나와 이웃을 위한 마음의 등을 의미합니다.</div>
+
+	<div id="m2" class="message">In Korea, Yeondeunghoe(the Lotus Lantern Festival) is a Buddhist event that started in Silla and became a national event during the Goryeo Dynasty. After being designated as a national intangible cultural property in 2012, it was listed on the UNESCO Intangible Cultural Heritage list in 2020.<br><br>People who participate in the lantern party light their own backs and go out to the streets, which means the back of their hearts for me and my neighbors.</div>
+	</div>
+
+	<img id="finalLotus" src="lotus7.png">
+	<button id="back">Restart Yeondeunghoe</button>
+
+
+
+	<script type="text/javascript">
+		
+	var text = localStorage.getItem("wish");
+	console.log(text);
+	title.innerText = text;
+
+	var a = ["lotus1","lotus2","lotus3","lotus4","lotus5","lotus6","lotus7"];
+
+
+	document.getElementById("makebaloon").onmouseover = function() {mouseOver()};
+	document.getElementById("makebaloon").onmouseout = function() {mouseOut()};
+
+	function mouseOver() {
+	  document.getElementById("makebaloon").src = "add2.png";
+	}
+
+	function mouseOut() {
+	  document.getElementById("makebaloon").src = "add1.png";
+	}
+		
+	makebaloon.onclick = function(){
+		createBalloon();
+	}
+
+	launch.style.animation = "opc100 1.5s ease-in-out forwards 4s";
+
+
+	launch.onclick = function(){
+
+		title.style.animation = "opc100 2s ease-in-out forwards";
+		makebaloon.style.animation = "opc0 1.5s ease-in-out forwards";
+		launch.style.animation = "opc0 1.5s ease-in-out forwards";
+
+		var t = document.getElementsByClassName('lotus');
+		for(var i=0;i<t.length;i++){
+			var k = 0.2 * i; //애니메이션 시간차
+			t[i].style.animation = "float 6s ease-in forwards " + k +"s";
+			
+			if(i == (t.length - 1)){
+			t[i].onanimationend =  function(){
+			title.style.animation = "opcFloat 2s ease-in forwards"
+				
+				title.onanimationend = function(){
+				sub.style.animation = "final 1.5s ease-in-out forwards"
+				m1.style.animation = "final 2s ease-in-out forwards 1.5s"
+				m2.style.animation = "final 2s ease-in-out forwards 1.5s"
+				finalLotus.style.animation = "opc100 2s ease-in-out forwards 1.5s"
+				back.style.animation = "opc100 2s ease-in-out forwards 3.5s"
+				}
+			}}			
+		}
+	}
+		
+
+	for(var i=0;i<15;i++){
+		createBalloon();	 
+	}
+
+	function createBalloon(){
+		var t = document.createElement("img");
+		t.style.display = "block";
+		t.src = a[randomBH(0,6)] + ".png";
+		t.className = "lotus";
+
+		var size = randomBH(3,16);
+		t.style.width = size + "vw";
+		t.style.zIndex = size;
+		t.style.height = "auto";
+
+		//xxs:50-80/3, xs:80-110/5, s:110-140/7, m:140-170/9, l:170-200/11, xl:200-230/13, xxl:230-260/15
+		if(size < 5){
+			var b = 1.5 + Math.random();
+			t.id = "xxs";
+			t.style.animation = "xxs " + b + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 5 && size < 7){
+			var c = 2 + Math.random();
+			t.id = "xs";
+			t.style.animation = "xs " + c + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 7 && size < 9){
+			var d = 2.5 + Math.random();
+			t.id = "s";
+			t.style.animation = "s " + d + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 9 && size < 11){
+			var e = 3 + Math.random();
+			t.id = "m";
+			t.style.animation = "m " + e + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 11 && size < 13){
+			var f = 3.5 + Math.random();
+			t.id = "l";
+			t.style.animation = "l " + f + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 13 && size < 15){
+			var g = 4 + Math.random();
+			t.id = "xl";
+			t.style.animation = "xl " + g + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 15){
+			var h = 4 + Math.random();
+			t.id = "xxl";
+			t.style.animation = "xxl " + h + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}	
+		
+
+		t.onclick = function(e){
+			this.style.animation = "float 3s ease-in-out forwards";
+		}
+
+		t.style.left = Math.random()*screen.availWidth + "px";
+		document.body.appendChild(t);
+		}	
+
+		function randomBH(min, max) {
+		  min = Math.ceil(min);
+		  max = Math.floor(max);
+		  return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		back.onclick = function(){
+		location.href = "index.html";
+ 		};
+
+	</script>
+</body>
+</html>
